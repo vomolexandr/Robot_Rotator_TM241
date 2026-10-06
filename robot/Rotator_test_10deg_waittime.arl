@@ -1,0 +1,14 @@
+import "/USB/sda/Rotator.arl"
+
+double sr=10
+double angle=0
+
+func void main()
+while (1)
+if (!getdi(4))
+angle+=sr 
+Rotator::SET(true, angle, 360)
+endif
+waittime(0.25)
+endwhile
+endfunc

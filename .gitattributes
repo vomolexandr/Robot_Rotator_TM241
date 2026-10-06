@@ -1,0 +1,5 @@
+*.project binary
+*.st -linguist-detectable
+*.st text eol=crlf
+*.arl text eol=crlf
+*.md text

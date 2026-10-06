@@ -1,0 +1,191 @@
+iodev RotatorRS232
+bool RS232Init
+
+string sMove = "0"
+string sPos = "-00000.00"
+string sSpd = "000.00"
+string ReadMASS
+string Start = "S"
+string Finish = "F"
+
+func void main()
+ if (!RS232Init)
+ open(RotatorRS232,"/dev/ttyS0",4800,8,one,none)
+ RS232Init = true
+ endif
+ string SendMASS
+ SendMASS = Start + sPos + sSpd + sMove + Finish
+ write(RotatorRS232, SendMASS)
+endfunc
+
+//SET MOVE
+func string SET_Move(bool move)
+ if (move)
+ sMove = "1"
+ else
+ sMove = "0"
+ endif
+ return sMove
+endfunc
+//SET MOVE
+
+//SET_POSITION
+func string SET_Pose(double d)
+ string sInt = ""
+ string sFrac = ""
+ string sSign = "+"
+ double dAbs = 0
+ int scaled = 0
+ int intPart = 0
+ int fracPart = 0
+ // Обмеження діапазону
+ if (d > 99999.99)
+ d = 99999.99
+ elseif (d < -99999.99)
+ d = -99999.99
+ endif
+ // Визначення знака
+ if (d < 0)
+ sSign = "-"
+ dAbs = -d
+ else
+ sSign = "+"
+ dAbs = d
+ endif
+ // Переводимо в соті
+ scaled = toint(dAbs * 100 + 0.5)
+ intPart = scaled / 100
+ fracPart = scaled - intPart * 100
+ // Ціла частина
+ sInt = tostr(intPart)
+ if (strlen(sInt) == 1)
+ sInt = "0000" + sInt
+ elseif (strlen(sInt) == 2)
+ sInt = "000" + sInt
+ elseif (strlen(sInt) == 3)
+ sInt = "00" + sInt
+ elseif (strlen(sInt) == 4)
+ sInt = "0" + sInt
+ endif
+ // Дробова частина
+ if (fracPart < 10)
+ sFrac = "0" + tostr(fracPart)
+ else
+ sFrac = tostr(fracPart)
+ endif
+ sPos = sSign + sInt + "." + sFrac
+ return sPos
+endfunc
+//SET_POSITION
+
+//SET_SPEED
+func string SET_Speed(double d)
+ string sInt = ""
+ string sFrac = ""
+ int scaled = 0
+ int intPart = 0
+ int fracPart = 0
+ // Обмеження діапазону
+ if (d < 0)
+ d = 0
+ elseif (d > 999.99)
+ d = 999.99
+ endif
+ // Переводимо в соті
+ scaled = toint(d * 100 + 0.5)
+ intPart = scaled / 100
+ fracPart = scaled - intPart * 100
+ // Ціла частина
+ sInt = tostr(intPart)
+ if (strlen(sInt) == 1)
+ sInt = "00" + sInt
+ elseif (strlen(sInt) == 2)
+ sInt = "0" + sInt
+ endif
+ // Дробова частина
+ if (fracPart < 10)
+ sFrac = "0" + tostr(fracPart)
+ else
+ sFrac = tostr(fracPart)
+ endif
+ sSpd = sInt + "." + sFrac
+ return sSpd
+endfunc
+//SET_SPEED
+
+func void SET(bool m, double p, double s)
+ Start = "S"
+ Finish = "F"
+ sMove = SET_Move(m)
+ sPos = SET_Pose(p)
+ sSpd = SET_Speed(s)
+ main()
+endfunc
+
+//GET_POSITION
+func double GET_Pose()
+ Start = "R"
+ Finish = "P"
+ if (RS232Init)
+ clearbuff(RotatorRS232)
+ endif
+ main()
+ waituntil read(RotatorRS232, ReadMASS, 11)
+ string sData = ""
+ string sInt = "0"
+ string sFrac = "00"
+ string sChar = ""
+ int dotPos = -1
+ int fracLen = 0
+ int valueInt = 0
+ int valueFrac = 0
+ int sign = 1
+ double val = 0
+ if (strlen(ReadMASS) >= 3)
+ if (substr(ReadMASS,0,1) == "S" && substr(ReadMASS,strlen(ReadMASS)-1,1) == "F")
+ sData = substr(ReadMASS,1,strlen(ReadMASS)-2)
+ if (strlen(sData) > 0)
+ if (substr(sData,0,1) == "-")
+ sign = -1
+ sData = substr(sData,1,strlen(sData)-1)
+ elseif (substr(sData,0,1) == "+")
+ sign = 1
+ sData = substr(sData,1,strlen(sData)-1)
+ endif
+ endif
+ for (int i = 0; i < strlen(sData); i++)
+ sChar = substr(sData,i,1)
+ if (sChar == ".")
+ dotPos = i
+ endif
+ endfor
+ if (dotPos == -1)
+ sInt = sData
+ sFrac = "00"
+ else
+ if (dotPos > 0)
+ sInt = substr(sData,0,dotPos)
+ else
+ sInt = "0"
+ endif
+ fracLen = strlen(sData) - dotPos - 1
+ if (fracLen <= 0)
+ sFrac = "00"
+ elseif (fracLen == 1)
+ sFrac = substr(sData,dotPos + 1,1) + "0"
+ else
+ sFrac = substr(sData,dotPos + 1,2)
+ endif
+ endif
+ if (strlen(sInt) == 0)
+ sInt = "0"
+ endif
+ valueInt = toint(sInt,dec)
+ valueFrac = toint(sFrac,dec)
+ val = sign * (valueInt + valueFrac / 100.0)
+ endif
+ endif
+ return val
+ clearbuff(RotatorRS232)
+endfunc
+//GET_POSITION

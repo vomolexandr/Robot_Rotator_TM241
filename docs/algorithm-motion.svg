@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1376" height="1434" viewBox="0 0 1376 1434" font-family="Arial, Helvetica, sans-serif" font-size="13">
+<defs><marker id="a" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#000"/></marker></defs>
+<rect width="100%" height="100%" fill="#fff"/>
+<text x="688.0" y="30" text-anchor="middle" font-size="16" font-weight="bold">Керування рухом (Motor)</text>
+<path d="M181.0,104.0 L181.0,150.0" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/>
+<path d="M181.0,223.0 L181.0,269.0" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/>
+<path d="M181.0,349.6 L181.0,497.6" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/><text x="187.0" y="363.6" font-size="12" font-style="italic">Ні</text>
+<path d="M282.8,309.3 L1181.0,309.3 L1181.0,395.6" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/><text x="288.8" y="303.3" font-size="12" font-style="italic">Так</text>
+<path d="M1181.0,451.6 L1181.0,483.6 L181.0,483.6 L181.0,497.6" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/>
+<path d="M181.0,578.2 L181.0,794.2" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/><text x="187.0" y="592.1999999999999" font-size="12" font-style="italic">Ні</text>
+<path d="M258.3,537.9 L931.0,537.9 L931.0,624.2" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/><text x="264.32" y="531.9" font-size="12" font-style="italic">Так</text>
+<path d="M931.0,748.2 L931.0,780.2 L181.0,780.2 L181.0,794.2" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/>
+<path d="M181.0,864.2 L181.0,1046.2" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/><text x="187.0" y="878.2" font-size="12" font-style="italic">Ні</text>
+<path d="M307.3,829.2 L681.0,829.2 L681.0,910.2" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/><text x="313.28" y="823.2" font-size="12" font-style="italic">Так</text>
+<path d="M681.0,1000.2 L681.0,1032.2 L181.0,1032.2 L181.0,1046.2" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/>
+<path d="M181.0,1159.1 L181.0,1295.1" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/><text x="187.0" y="1173.1000000000001" font-size="12" font-style="italic">Ні</text>
+<path d="M276.7,1102.7 L431.0,1102.7 L431.0,1205.1" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/><text x="282.68" y="1096.65" font-size="12" font-style="italic">Так</text>
+<path d="M431.0,1249.1 L431.0,1281.1 L181.0,1281.1 L181.0,1295.1" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/>
+<path d="M181.0,1368.1 L181.0,1380.1 L36.7,1380.1 L36.7,38.0 L181.0,38.0 L181.0,60.0" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/>
+<rect x="111.0" y="60.0" width="140" height="44" rx="22.0" fill="#fff" stroke="#000" stroke-width="1.4"/><text x="181.0" y="86.55" text-anchor="middle">Початок циклу</text>
+<rect x="80.2" y="150.0" width="201.6" height="73" fill="#fff" stroke="#000" stroke-width="1.4"/><text x="181.0" y="174.05" text-anchor="middle">MC_Power: вісь SM1</text><text x="181.0" y="191.05" text-anchor="middle">вмикається через 100 мс</text><text x="181.0" y="208.05" text-anchor="middle">після пуску</text>
+<polygon points="181.0,269.0 282.8,309.3 181.0,349.6 79.2,309.3" fill="#fff" stroke="#000" stroke-width="1.4"/><text x="181.0" y="305.35" text-anchor="middle">Перший пуск або</text><text x="181.0" y="322.35" text-anchor="middle">DI_RESET?</text>
+<rect x="1086.0" y="395.6" width="190" height="56" fill="#fff" stroke="#000" stroke-width="1.4"/><text x="1181.0" y="419.65000000000003" text-anchor="middle">Позиція = 0</text><text x="1181.0" y="436.65000000000003" text-anchor="middle">(MC_SetPosition)</text>
+<polygon points="181.0,497.59999999999997 258.32,537.9 181.0,578.1999999999999 103.67999999999999,537.9" fill="#fff" stroke="#000" stroke-width="1.4"/><text x="181.0" y="533.9499999999999" text-anchor="middle">DI_LEFT або</text><text x="181.0" y="550.9499999999999" text-anchor="middle">DI_RIGHT?</text>
+<rect x="823.0" y="624.2" width="216.0" height="124" fill="#fff" stroke="#000" stroke-width="1.4"/><text x="931.0" y="648.25" text-anchor="middle">Ручний рух</text><text x="931.0" y="665.25" text-anchor="middle">(MC_MoveVelocity)</text><text x="931.0" y="682.25" text-anchor="middle">DI_LEFT: напрямок -1,</text><text x="931.0" y="699.25" text-anchor="middle">DI_RIGHT: +1</text><text x="931.0" y="716.25" text-anchor="middle">швидкість із завдання, 10</text><text x="931.0" y="733.25" text-anchor="middle">град/с, якщо 0</text>
+<polygon points="181.0,794.2 307.28,829.2 181.0,864.2 54.72,829.2" fill="#fff" stroke="#000" stroke-width="1.4"/><text x="181.0" y="833.75" text-anchor="middle">Нове завдання руху?</text>
+<rect x="573.0" y="910.2" width="216.0" height="90" fill="#fff" stroke="#000" stroke-width="1.4"/><text x="681.0" y="934.25" text-anchor="middle">Автоматичний рух</text><text x="681.0" y="951.25" text-anchor="middle">(MC_MoveAbsolute)</text><text x="681.0" y="968.25" text-anchor="middle">позиція і швидкість x 100</text><text x="681.0" y="985.25" text-anchor="middle">імп/град</text>
+<polygon points="181.0,1046.2 276.68,1102.65 181.0,1159.1000000000001 85.32000000000001,1102.65" fill="#fff" stroke="#000" stroke-width="1.4"/><text x="181.0" y="1090.2" text-anchor="middle">Спад DI_LEFT,</text><text x="181.0" y="1107.2" text-anchor="middle">DI_RIGHT або</text><text x="181.0" y="1124.2" text-anchor="middle">прапорця руху?</text>
+<rect x="336.0" y="1205.1" width="190" height="44" fill="#fff" stroke="#000" stroke-width="1.4"/><text x="431.0" y="1231.6499999999999" text-anchor="middle">Стоп (MC_Stop)</text>
+<rect x="76.6" y="1295.1" width="208.8" height="73" fill="#fff" stroke="#000" stroke-width="1.4"/><text x="181.0" y="1319.1499999999999" text-anchor="middle">ROTATOR_ACTIVE (QX0.4) =</text><text x="181.0" y="1336.1499999999999" text-anchor="middle">1, поки виконується</text><text x="181.0" y="1353.1499999999999" text-anchor="middle">автоматичний рух</text>
+</svg>

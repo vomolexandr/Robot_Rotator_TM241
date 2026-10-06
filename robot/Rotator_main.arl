@@ -1,0 +1,12 @@
+import "/USB/sda/Rotator.arl"
+
+func void main()
+print "GET pose = " + Rotator::GET_Pose() // deg
+waittime 1
+Rotator::SET(true, 90, 360) //move/stop, pose in deg, spd in deg/sec
+waittime 1
+print "GET pose = " + Rotator::GET_Pose() // deg
+waittime 1
+Rotator::SET(true, -90, 360) //move/stop, pose in deg, spd in deg/sec
+waittime 1
+endfunc

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="610" height="1184" viewBox="0 0 610 1184" font-family="Arial, Helvetica, sans-serif" font-size="13">
+<defs><marker id="a" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#000"/></marker></defs>
+<rect width="100%" height="100%" fill="#fff"/>
+<text x="305.0" y="30" text-anchor="middle" font-size="16" font-weight="bold">Обмін з роботом по RS232 (Data_transfer)</text>
+<path d="M165.0,104.0 L165.0,150.0" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/>
+<path d="M165.0,206.0 L165.0,252.0" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/>
+<path d="M165.0,332.6 L165.0,378.6" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/><text x="171.0" y="346.6" font-size="12" font-style="italic">Так</text>
+<path d="M291.3,292.3 L280.0,292.3 L280.0,500.6 L165.0,500.6 L165.0,514.6" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/><text x="297.28" y="286.3" font-size="12" font-style="italic">Ні</text>
+<path d="M165.0,468.6 L165.0,514.6" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/>
+<path d="M165.0,595.2 L165.0,743.2" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/><text x="171.0" y="609.1999999999999" font-size="12" font-style="italic">Ні</text>
+<path d="M272.9,554.9 L415.0,554.9 L415.0,641.2" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/><text x="278.92" y="548.9" font-size="12" font-style="italic">Так</text>
+<path d="M415.0,697.2 L415.0,729.2 L165.0,729.2 L165.0,743.2" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/>
+<path d="M165.0,799.2 L165.0,845.2" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/>
+<path d="M165.0,925.8 L165.0,971.8" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/><text x="171.0" y="939.8" font-size="12" font-style="italic">Так</text>
+<path d="M297.4,885.5 L290.0,885.5 L290.0,1059.8 L165.0,1059.8 L165.0,1073.8" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/><text x="303.4" y="879.5" font-size="12" font-style="italic">Ні</text>
+<path d="M165.0,1027.8 L165.0,1073.8" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/>
+<rect x="95.0" y="60.0" width="140" height="44" rx="22.0" fill="#fff" stroke="#000" stroke-width="1.4"/><text x="165.0" y="86.55" text-anchor="middle">Початок циклу</text>
+<rect x="53.39999999999999" y="150.0" width="223.20000000000002" height="56" fill="#fff" stroke="#000" stroke-width="1.4"/><text x="165.0" y="174.05" text-anchor="middle">Приймання кадра від робота</text><text x="165.0" y="191.05" text-anchor="middle">SndRecvRS232 (читання)</text>
+<polygon points="165.0,252.0 291.28,292.3 165.0,332.6 38.72,292.3" fill="#fff" stroke="#000" stroke-width="1.4"/><text x="165.0" y="288.35" text-anchor="middle">Кадр команди? (байт</text><text x="165.0" y="305.35" text-anchor="middle">1 = S, байт 18 = F)</text>
+<rect x="60.599999999999994" y="378.6" width="208.8" height="90" fill="#fff" stroke="#000" stroke-width="1.4"/><text x="165.0" y="402.65000000000003" text-anchor="middle">Розбір кадра:</text><text x="165.0" y="419.65000000000003" text-anchor="middle">позиція (байти 2-10)</text><text x="165.0" y="436.65000000000003" text-anchor="middle">швидкість (байти 11-16)</text><text x="165.0" y="453.65000000000003" text-anchor="middle">прапорець руху (байт 17)</text>
+<polygon points="165.0,514.6 272.92,554.9 165.0,595.1999999999999 57.08,554.9" fill="#fff" stroke="#000" stroke-width="1.4"/><text x="165.0" y="550.9499999999999" text-anchor="middle">Скидання позиції</text><text x="165.0" y="567.9499999999999" text-anchor="middle">(RESET_POSE)?</text>
+<rect x="320.0" y="641.2" width="190" height="56" fill="#fff" stroke="#000" stroke-width="1.4"/><text x="415.0" y="665.25" text-anchor="middle">Рух вимкнено</text><text x="415.0" y="682.25" text-anchor="middle">швидкість 10.00</text>
+<rect x="60.599999999999994" y="743.2" width="208.8" height="56" fill="#fff" stroke="#000" stroke-width="1.4"/><text x="165.0" y="767.25" text-anchor="middle">Відповідь: S + поточна</text><text x="165.0" y="784.25" text-anchor="middle">позиція (9 символів) + F</text>
+<polygon points="165.0,845.2 297.4,885.5 165.0,925.8 32.60000000000002,885.5" fill="#fff" stroke="#000" stroke-width="1.4"/><text x="165.0" y="881.55" text-anchor="middle">Запит позиції? (байт</text><text x="165.0" y="898.55" text-anchor="middle">1 = R, байт 18 = P)</text>
+<rect x="70.0" y="971.8000000000001" width="190" height="56" fill="#fff" stroke="#000" stroke-width="1.4"/><text x="165.0" y="995.85" text-anchor="middle">Передача відповіді</text><text x="165.0" y="1012.85" text-anchor="middle">SndRecvRS232 (запис)</text>
+<rect x="95.0" y="1073.8000000000002" width="140" height="44" rx="22.0" fill="#fff" stroke="#000" stroke-width="1.4"/><text x="165.0" y="1100.3500000000001" text-anchor="middle">Кінець циклу</text>
+</svg>
