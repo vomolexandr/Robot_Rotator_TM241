@@ -1,6 +1,6 @@
 *.project binary
 *.arl linguist-language=C
-*.st -linguist-detectable
+*.st linguist-language=Pascal
 *.st text eol=crlf
 *.arl text eol=crlf
 *.md text
